@@ -7,13 +7,14 @@ A repository's own `CONTRIBUTING.md` adds stack-specific requirements, tests and
 
 1. Open an issue in the repository for bugs and feature requests (English or Russian).
    Report vulnerabilities privately per [SECURITY.md](SECURITY.md).
-2. Create a branch `feat/...` or `fix/...` and open a pull request to `master`.
+2. Create a branch `feat/...`, `fix/...`, `docs/...` or `chore/...` and open a pull request to `master`;
+   it is merged with **Squash and merge**.
 3. Requirements for a pull request to be accepted:
    - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) messages;
    - signed commits;
    - all required checks green;
    - `README.md` and `CHANGELOG.md` updated when behavior changes;
-   - an ADR draft in `docs/adr-drafts/` for architectural changes.
+   - an ADR in `docs/adr/` (status `proposed`) for architectural changes.
 
 By contributing you agree that your contribution is licensed under the repository license (Apache-2.0).
 

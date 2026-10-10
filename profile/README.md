@@ -1,57 +1,67 @@
 # sogeor
 
-A provider-agnostic DevSecOps platform lab: hybrid home + VDS infrastructure, classic and
-immutable Kubernetes clusters, and security by default at every layer. Aligned with both
-international (CIS, NIST SSDF, SLSA, OWASP) and Russian (GOST R 56939-2024, FSTEC orders,
-FSTEC BDU) frameworks.
+An open-source reference DevSecOps platform: build any Kubernetes cluster from a short
+description, on a home Proxmox server or in the cloud, with security by default at every layer.
+Aligned with international (CIS, NIST SSDF, SLSA, OWASP) and Russian (GOST R 56939-2024,
+FSTEC orders, FSTEC BDU) frameworks.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-  gh["GitHub<br/>source of truth"] --> gha["GitHub Actions<br/>state: gitlab.com"]
-  gh -- mirror --> gl["Self-hosted GitLab<br/>state: SeaweedFS"]
-  gha --> mgmt["mgmt<br/>k3s"]
-  gl --> main["main<br/>kubeadm"]
-  gl --> talos["talos<br/>Talos Linux"]
-  mgmt -- Argo CD --> main
-  mgmt -- Argo CD --> talos
-  main <-- Cilium ClusterMesh --> talos
-  home["Site: home<br/>Proxmox"] <-- Headscale mesh --> vds["Sites: VDS, clouds"]
+  L0["Layer 0<br/>bootstrap"] --> GHA["GitHub Actions<br/>state on gitlab.com"]
+  GHA --> EDGE["edge<br/>Headscale mesh"]
+  GHA --> MGMT["mgmt cluster<br/>Talos"]
+  MGMT -- "Argo CD + Cluster API" --> MAIN["main<br/>kubeadm, Ubuntu / Astra"]
+  MGMT -- "Argo CD + Cluster API" --> TALOS["talos<br/>Talos Linux"]
+  MAIN <-- "Cilium ClusterMesh" --> TALOS
 ```
 
-| Cluster | OS | Distribution | Purpose |
-|---|---|---|---|
-| `mgmt` | Ubuntu 24.04 | k3s | Argo CD, OpenBao, Harbor, Keycloak, GitLab Runner, SeaweedFS |
-| `main` | Ubuntu 24.04, Astra Linux | kubeadm + containerd | Workloads, CIS-hardened OS, Russian compliance track |
-| `talos` | Talos Linux | built-in | Workloads, immutable approach, international track |
+- **Management cluster `mgmt`** (Talos): Argo CD, Cluster API with autoscaling, OpenBao,
+  Keycloak, Harbor, GitLab, backups.
+- **Workload clusters** are created from `mgmt` in the cloud, scale down to zero worker nodes and
+  can be torn down and restored from backups in one operation.
+
+## Cluster constructor
+
+A cluster is a combination of independent axes; a new combination is a new description file,
+not new code.
+
+| Axis | Values |
+|---|---|
+| Distribution | Talos, kubeadm, k3s |
+| Operating system (per node pool) | Ubuntu 24.04, Ubuntu 26.04, Astra Linux SE 1.8, Talos, Alpine (experimental) |
+| Provider | Proxmox, Selectel, VK Cloud, Yandex Cloud, Timeweb, bring-your-own VDS |
+| Topology | `single` (minimum cost) or `ha`, switched by configuration |
+| Profiles | core, CI, data, security-plus, observability-plus, chaos, ru-track |
 
 ## Principles
 
 - **Supply chain:** SLSA provenance, SBOM and VEX attestations, Cosign signatures verified at admission.
 - **No static secrets in CI:** OIDC → OpenBao short-lived credentials.
-- **Policy as code** on every layer: IaC plans, OS, admission, runtime, network.
-- **Zero trust access:** short-lived SSH certificates, OIDC for kube-API, no public admin endpoints.
-- **Provider-agnostic nodes:** Proxmox, clouds or any VDS behind one node contract.
-- **Reliability:** tested backups, DR scenarios, chaos experiments, SLOs.
+- **Policy as code** on every layer: infrastructure plans, cluster descriptions, OS, admission, runtime, network.
+- **Zero trust access:** short-lived SSH certificates, OIDC for the Kubernetes API, no public admin endpoints.
+- **Self-healing:** nodes are recreated from descriptions, data is restored from backups automatically.
+- **Documentation is part of the product:** every repository explains every option and every action.
 
 ## Repositories
 
 | Repository | Purpose | Status |
 |---|---|---|
-| [`packer-images`](https://github.com/sogeor/packer-images) | VM images (Ubuntu, Talos) | Active [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sogeor/packer-images/badge)](https://scorecard.dev/viewer/?uri=github.com/sogeor/packer-images) |
-| [`.github`](https://github.com/sogeor/.github) | Organization profile and community defaults | Active |
-| `actions-workflows` | Reusable GitHub Actions workflows | Planned |
-| `gitlab-ci-templates` | GitLab CI templates for the inner contour | Planned |
-| `lab-bootstrap` | Layer 0: Hyper-V, Proxmox, ops VM | Planned |
-| `infra` | OpenTofu modules and inner-contour infrastructure | Planned |
-| `ansible` | Roles and playbooks for non-Talos nodes | Planned |
-| `mgmt-infra` | OpenTofu for edge and the management cluster | Planned |
+| [`images`](https://github.com/sogeor/images) | VM images: Ubuntu for Proxmox, Talos Image Factory schematic | Ready [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sogeor/images/badge)](https://scorecard.dev/viewer/?uri=github.com/sogeor/images) |
+| [`.github`](https://github.com/sogeor/.github) | Organization profile and community defaults | In progress |
+| [`workflows`](https://github.com/sogeor/workflows) | Reusable GitHub Actions workflows | In progress |
+| `docs` | Platform-wide documentation, ADRs, runbooks | Planned |
+| `bootstrap` | Layer 0: Hyper-V, Proxmox, cloud accounts, secrets | Planned |
+| `modules` | OpenTofu modules and the cluster constructor | Planned |
+| `management` | Outer contour: edge, mgmt cluster, DNS, Cloudflare | Planned |
 | `platform` | GitOps for all clusters | Planned |
-| `helm-charts` | Shared `service` chart | Planned |
-| `shoplite` | Demo microservice application | Planned |
+| `ansible` | Roles for non-Talos nodes | Planned |
+| `ci-templates` | GitLab CI templates for the inner contour | Planned |
+| `charts` | Shared Helm `service` chart | Planned |
+| `store` | Online store running on the platform | Planned |
 | `policies` | Policy and detection as code | Planned |
 | `compliance` | Compliance matrix, evidence, tooling | Planned |
-| `docs` | Architecture, ADRs, runbooks | Planned |
 
-Documentation: [`sogeor/docs`](https://github.com/sogeor/docs).
+Each repository documents itself in its `docs/` directory; platform-wide documentation will live in
+the `docs` repository.
