@@ -40,6 +40,7 @@ jobs:
             --no-progress
             --exclude '^https://github\.com/sogeor/[^/]+/(security|issues/new)'
             --exclude '^https://github\.com/organizations/'
+            --exclude '^https://github\.com/sogeor/\.github/compare/'
             '*.md' 'docs/**/*.md' 'profile/**/*.md' '.github/**/*.md'
           fail: true
 

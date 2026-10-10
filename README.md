@@ -5,6 +5,7 @@ Organization profile and default community health files for [sogeor](https://git
 [![validate](https://github.com/sogeor/.github/actions/workflows/validate.yml/badge.svg)](https://github.com/sogeor/.github/actions/workflows/validate.yml)
 [![docs](https://github.com/sogeor/.github/actions/workflows/docs.yml/badge.svg)](https://github.com/sogeor/.github/actions/workflows/docs.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sogeor/.github/badge)](https://scorecard.dev/viewer/?uri=github.com/sogeor/.github)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/15351/badge)](https://www.bestpractices.dev/projects/15351)
 [![License](https://img.shields.io/github/license/sogeor/.github)](LICENSE)
 
 ## Overview

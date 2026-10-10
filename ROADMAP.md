@@ -8,7 +8,6 @@ Horizon: through Q4 2027.
   badges as repositories go live.
 - Link the documentation site `docs.sogeor.com` from the profile once it is published.
 - Keep the repository setup checklist aligned with the settings actually used.
-- Register the repository at OpenSSF Best Practices.
 
 ## Not planned
 
