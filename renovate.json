@@ -5,6 +5,7 @@
     ":dependencyDashboard",
     "helpers:pinGitHubActionDigests"
   ],
+  "semanticCommits": "enabled",
   "automerge": false,
   "pinDigests": true,
   "labels": [

@@ -108,9 +108,14 @@ spaces and tabs.
 1. Install the [Renovate GitHub App](https://github.com/apps/renovate) → **Configure** →
    `<owner>` → **Only select repositories** → add `<repo>` → **Save**.
 2. The configuration is in `renovate.json`: no automerge, grouped updates, SHA-pinned
-   pre-commit hooks through a regex manager, hash-locked Python requirements.
+   pre-commit hooks through a regex manager, hash-locked Python requirements, Conventional Commits
+   titles (`semanticCommits`).
 
 Check: an issue **Dependency Dashboard** appears within an hour.
+
+When merging a Renovate pull request with **Squash and merge**, check the **Commit message** field:
+it must be a Conventional Commits title with the pull request number, for example
+`chore(deps): update github-actions (#7)`.
 
 After merging a Renovate pull request, update the **Versions** table in `README.md`: Renovate does
 not change it.
