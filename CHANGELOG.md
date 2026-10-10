@@ -6,8 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Latest release badge in README.
+
 ### Changed
 
+- Renovate pull request titles follow Conventional Commits (`semanticCommits`).
 - Renovate `pip-compile` manager reads `requirements-*.txt` lock files; the files now keep the pip-compile header.
 
 ## [0.2.0] - 2026-10-10
