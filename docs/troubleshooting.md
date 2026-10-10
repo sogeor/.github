@@ -15,7 +15,8 @@
 | Symptom | Cause | Solution |
 |---|---|---|
 | Renovate proposes a downgrade of a pre-commit hook (for example v6 → v3.4.0) | The built-in pre-commit manager misreads SHA-pinned hooks | It is disabled in `renovate.json`; the regex manager handles `rev: <sha> # vX` |
-| `pip install --require-hashes` fails | `*.txt` was edited by hand or generated without hashes | Regenerate: `pip-compile --generate-hashes --allow-unsafe --strip-extras -o .github/requirements-docs.txt .github/requirements-docs.in` |
+| Dependency Dashboard shows **Config Migration Needed** for `pip-compile` | Renovate now reads the lock files (`*.txt`) instead of `*.in` | `managerFilePatterns` points to `requirements-*.txt`; the files keep the pip-compile header, which Renovate uses to rerun the command |
+| `pip install --require-hashes` fails | `*.txt` was edited by hand or generated without hashes | Regenerate: `pip-compile --generate-hashes --allow-unsafe --strip-extras -o .github/requirements-docs.txt .github/requirements-docs.in`; keep the generated header and remove `--no-index` from it if your pip configuration adds it |
 
 ## GitHub settings
 
