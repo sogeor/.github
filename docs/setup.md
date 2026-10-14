@@ -109,7 +109,10 @@ spaces and tabs.
    `<owner>` → **Only select repositories** → add `<repo>` → **Save**.
 2. The configuration is in `renovate.json`: no automerge, grouped updates, SHA-pinned
    pre-commit hooks through a regex manager, hash-locked Python requirements, Conventional Commits
-   titles (`semanticCommits`).
+   titles (`semanticCommits`), and a 7-day minimum release age (`minimumReleaseAge`).
+3. The release age delay protects against compromised or yanked releases: Renovate proposes a
+   version only 7 days after it was published. Security updates bypass the delay. Updates whose
+   source publishes no release dates are held until the date is known.
 
 Check: an issue **Dependency Dashboard** appears within an hour.
 
