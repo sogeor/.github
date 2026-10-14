@@ -49,11 +49,11 @@ not new code.
 | Repository | Purpose | Status |
 |---|---|---|
 | [`images`](https://github.com/sogeor/images) | VM images: Ubuntu for Proxmox, Talos Image Factory schematic | Ready [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sogeor/images/badge)](https://scorecard.dev/viewer/?uri=github.com/sogeor/images) |
-| [`.github`](https://github.com/sogeor/.github) | Organization profile and community defaults | In progress |
-| [`workflows`](https://github.com/sogeor/workflows) | Reusable GitHub Actions workflows | In progress |
-| `docs` | Platform-wide documentation, ADRs, runbooks | Planned |
+| [`.github`](https://github.com/sogeor/.github) | Organization profile and community defaults | Ready [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sogeor/.github/badge)](https://scorecard.dev/viewer/?uri=github.com/sogeor/.github) |
+| [`workflows`](https://github.com/sogeor/workflows) | Reusable GitHub Actions workflows and composite actions | Ready [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sogeor/workflows/badge)](https://scorecard.dev/viewer/?uri=github.com/sogeor/workflows) |
+| [`docs`](https://github.com/sogeor/docs) | Platform-wide documentation site, ADRs, runbooks | In progress [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sogeor/docs/badge)](https://scorecard.dev/viewer/?uri=github.com/sogeor/docs) |
 | `bootstrap` | Layer 0: Hyper-V, Proxmox, cloud accounts, secrets | Planned |
-| `modules` | OpenTofu modules and the cluster constructor | Planned |
+| [`modules`](https://github.com/sogeor/modules) | OpenTofu modules and the cluster constructor | In progress [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sogeor/modules/badge)](https://scorecard.dev/viewer/?uri=github.com/sogeor/modules) |
 | `management` | Outer contour: edge, mgmt cluster, DNS, Cloudflare | Planned |
 | `platform` | GitOps for all clusters | Planned |
 | `ansible` | Roles for non-Talos nodes | Planned |
@@ -63,5 +63,5 @@ not new code.
 | `policies` | Policy and detection as code | Planned |
 | `compliance` | Compliance matrix, evidence, tooling | Planned |
 
-Each repository documents itself in its `docs/` directory; platform-wide documentation will live in
-the `docs` repository.
+Documentation: [sogeor.github.io/docs](https://sogeor.github.io/docs/) — platform overview, cluster
+constructor, ADRs and runbooks. Each repository also documents itself in its `docs/` directory.

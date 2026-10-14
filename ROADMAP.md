@@ -6,7 +6,8 @@ Horizon: through Q4 2027.
 
 - Keep the organization profile in sync with the platform: repository links, status and Scorecard
   badges as repositories go live.
-- Link the documentation site `docs.sogeor.com` from the profile once it is published.
+- Switch the documentation link in the profile to `docs.sogeor.com` once the domain is set up.
+- Publish this repository's documentation on the platform site.
 - Keep the repository setup checklist aligned with the settings actually used.
 
 ## Not planned

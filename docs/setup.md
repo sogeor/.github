@@ -5,7 +5,7 @@ when you create a repository or fork this one. Steps are in order; each ends wit
 
 !!! note "Placeholders"
     `<owner>` is your GitHub organization, `<repo>` is the repository name. Required status check
-    names depend on the repository: `linters` and `docs` here, plus stack-specific jobs elsewhere.
+    names depend on the repository: `linters` and `docs / docs` here, plus stack-specific jobs elsewhere.
 
 ## 1. Required files
 
@@ -61,7 +61,7 @@ Check: the merge button of a pull request offers only **Squash and merge**.
 | Restrict deletions | on |
 | Require signed commits | on |
 | Require a pull request before merging | on, Required approvals `0` |
-| Require status checks to pass | on, **Require branches to be up to date**; checks `linters`, `docs` |
+| Require status checks to pass | on, **Require branches to be up to date**; checks `linters`, `docs / docs` |
 | Block force pushes | on |
 
 Status checks appear in **Add checks** only after they have run at least once: open the first

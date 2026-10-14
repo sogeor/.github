@@ -54,12 +54,8 @@ Full walkthrough: [docs/getting-started.md](docs/getting-started.md).
 
 | Tool | Version |
 |---|---|
+| sogeor/workflows (`docs`, `scorecard`) | v0.1.1 |
 | actions/checkout | v7.0.1 |
-| ossf/scorecard-action | v2.4.4 |
-| actions/upload-artifact | v7.0.2 |
-| github/codeql-action | v4.38.3 |
-| DavidAnson/markdownlint-cli2-action | v24.2.0 |
-| lycheeverse/lychee-action | v2.9.0 |
 | pre-commit-hooks | v6.0.0 |
 | gitleaks | v8.30.1 |
 | yamllint | v1.38.0 |

@@ -8,10 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Profile links to the documentation site and to the `docs` and `modules` repositories, with Scorecard badges.
 - Latest release badge in README.
 
 ### Changed
 
+- `docs` and `scorecard` workflows call the reusable workflows of `sogeor/workflows` v0.1.1;
+  the required documentation check is now `docs / docs`.
+- Profile: `.github` and `workflows` are ready; `docs` and `modules` are in progress.
 - Renovate proposes only versions published at least 7 days ago (`minimumReleaseAge`).
 - Renovate pull request titles follow Conventional Commits (`semanticCommits`).
 - Renovate `pip-compile` manager reads `requirements-*.txt` lock files; the files now keep the pip-compile header.

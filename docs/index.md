@@ -33,9 +33,11 @@ flowchart LR
   GH -->|links| DOCS["docs<br/>platform documentation"]
 ```
 
-This repository holds no infrastructure code. Platform-wide documentation, ADRs and runbooks
-belong in the `docs` repository; reusable CI belongs in
-[`workflows`](https://github.com/sogeor/workflows).
+This repository holds no infrastructure code. Platform-wide documentation, ADRs and runbooks are
+published at [sogeor.github.io/docs](https://sogeor.github.io/docs/) from the
+[`docs`](https://github.com/sogeor/docs) repository; reusable CI belongs in
+[`workflows`](https://github.com/sogeor/workflows), and this repository's `docs` and `scorecard`
+checks call it.
 
 ## Where to start
 

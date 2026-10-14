@@ -50,6 +50,6 @@ the build as CI does, run `python3 -m mkdocs build --strict`.
    `git commit -S -m "docs: <what changed>"`.
 3. Push and open a pull request; fill in the template. It is merged with **Squash and merge**.
 
-How to check: the pull request shows green `linters` and `docs` checks.
+How to check: the pull request shows green `linters` and `docs / docs` checks.
 
 If something fails, see [Troubleshooting](troubleshooting.md).

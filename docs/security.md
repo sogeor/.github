@@ -20,5 +20,6 @@
 |---|---|---|
 | Tampered profile or policy (misleading reporters, phishing links) | Contributor → `master` | Required PR checks, signed commits, `CODEOWNERS` review by the maintainer |
 | Malicious pull request changing workflows (CWE-829, CWE-94) | Fork PR → Actions runner | `pull_request` trigger only, read-only token, no secrets in `validate` and `docs`; zizmor checks for template injection |
+| Compromised reusable workflow (CWE-829) | `sogeor/workflows` → runner | Called by full commit SHA of a release tag; updates arrive as reviewed Renovate pull requests at least 7 days after the release |
 | Compromised third-party action or tool (CWE-494) | Upstream → runner | Actions pinned by SHA, checksums for downloads, hashed Python requirements, Renovate PRs reviewed manually |
 | Leaked Scorecard token | Repository secret → runner | Fine-grained PAT, read-only, one repository, one-year expiry; used only in the `scorecard` workflow on `master` |

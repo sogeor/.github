@@ -34,12 +34,25 @@ files are not merged.
 | Workflow | Job (status check) | Triggers | Permissions | Secrets |
 |---|---|---|---|---|
 | `validate.yml` | `linters` | pull request, push to `master`, manual | `contents: read` | none |
-| `docs.yml` | `docs` | pull request, push to `master`, manual | `contents: read` | none (uses `github.token` for lychee) |
-| `scorecard.yml` | `Scorecard analysis` | push to `master`, weekly, branch protection changes | `security-events: write`, `id-token: write`, read for the rest | `SCORECARD_TOKEN` |
+| `docs.yml` | `docs / docs` | pull request, push to `master`, manual | `contents: read` | none (uses `github.token` for lychee) |
+| `scorecard.yml` | `scorecard / Scorecard analysis` | push to `master`, weekly, branch protection changes | `permissions: {}` for the workflow; the job gets `security-events: write`, `id-token: write`, read for the rest | `SCORECARD_TOKEN` |
 
-`validate` runs yamllint, actionlint, zizmor and gitleaks. `docs` runs markdownlint, lychee
-(links to issue forms and security advisories are excluded because they require sign-in) and
-`mkdocs build --strict`.
+`validate` runs yamllint, actionlint, zizmor and gitleaks. `docs` and `scorecard` call the reusable
+workflows of [`sogeor/workflows`](https://github.com/sogeor/workflows) pinned by the commit SHA of tag `v0.1.1`.
+
+`docs` inputs used here:
+
+| Input | Value | Description |
+|---|---|---|
+| `markdown-globs` | `*.md`, `docs/**/*.md`, `profile/**/*.md`, `.github/**/*.md` | Files checked by markdownlint |
+| `link-paths` | the same paths | Files checked by lychee |
+| `link-args` | `--exclude` for issue forms, security advisories, organization settings and `compare/` links | These pages require sign-in, `compare/` links point to tags created after merge |
+
+Other inputs keep their defaults: lychee accepts 429 and 502–504 as temporary, checks `/blob/` links
+through `raw.githubusercontent.com`, and `mkdocs build --strict` installs `.github/requirements-docs.txt`.
+
+`scorecard` passes `SCORECARD_TOKEN` as the `scorecard-token` secret and keeps the defaults: publish
+results to the Scorecard API and upload SARIF to code scanning.
 
 ## Secrets
 

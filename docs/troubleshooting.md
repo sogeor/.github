@@ -5,7 +5,9 @@
 | Symptom | Cause | Solution |
 |---|---|---|
 | markdownlint `MD041` on `.github/PULL_REQUEST_TEMPLATE.md` | The template starts with a `##` heading, not `#` | Keep the `<!-- markdownlint-disable-file MD041 -->` first line; it is invisible in pull requests |
-| lychee fails on `.../security/advisories/new` or `.../issues/new` | These pages require sign-in | They are excluded in `docs.yml`; add similar sign-in pages to the `--exclude` list |
+| lychee fails on `.../security/advisories/new` or `.../issues/new` | These pages require sign-in | They are excluded in `link-args` of `docs.yml`; add similar sign-in pages there |
+| lychee fails with 503 or 504 on `github.com/.../blob/...` links | github.com throttles GitHub-hosted runners | The reusable `docs` workflow checks `/blob/` links through `raw.githubusercontent.com` and accepts 429 and 502–504 as temporary; rerun the job if it persists |
+| Pull request waits for the `docs` check forever | The job is now `docs / docs`, called from the reusable workflow | Add `docs / docs` to the ruleset and remove `docs` ([Setup](setup.md#4-branch-ruleset)) |
 | lychee fails on a link to a repository that does not exist yet | Planned repositories have no page | Keep planned repositories in the profile without links until they exist |
 | `mkdocs build --strict` fails with "not included in the nav" | A new page in `docs/` is missing from `nav` | Add the page to `nav` in `mkdocs.yml` |
 | A required status check never appears in the ruleset | The check has not run yet | Open a pull request, let it run, then add the check |
@@ -24,6 +26,7 @@
 |---|---|---|
 | A workflow fails to use a secret or variable value | The value was pasted with a trailing space or tab | Re-enter the value; scripts in other repositories trim whitespace, GitHub does not |
 | Push rejected with `GH013` | The ruleset requires a pull request and signed commits | Push a branch and open a pull request; sign commits |
+| Scorecard results are not published (no badge update) | The calling workflow sets top-level `env:` or `defaults:`, or grants permissions at workflow level | Keep `permissions: {}` at workflow level, `id-token: write` only on the `scorecard` job, no top-level `env:`/`defaults:` |
 | Scorecard run fails with 401 | `SCORECARD_TOKEN` expired or lacks Administration: Read-only | [Rotate the token](operations.md#rotate-the-scorecard-token) |
 
 ## Still stuck

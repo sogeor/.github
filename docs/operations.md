@@ -17,7 +17,7 @@ Goal: the organization page lists a new repository with its status.
 4. Add a line to `CHANGELOG.md` under **Unreleased**, commit, open a pull request.
 
 Expected result: after the merge the organization page shows the link and the badge.
-How to check: the `docs` check passes (lychee verifies the new link).
+How to check: the `docs / docs` check passes (lychee verifies the new link).
 
 ## Change a default file
 
@@ -41,6 +41,17 @@ The token expires after one year; rotate it a week earlier.
 4. Delete the old token in **Developer settings → Fine-grained tokens**.
 
 Expected result: the next **scorecard** run succeeds.
+
+## Update the reusable workflows
+
+`docs.yml` and `scorecard.yml` call [`sogeor/workflows`](https://github.com/sogeor/workflows) by commit SHA with a version comment.
+
+1. Renovate opens a pull request with the new SHA after a new `workflows` release is 7 days old.
+2. Read the `workflows` CHANGELOG for changed inputs and required check names.
+3. If a job name changes, add the new check to the ruleset before merging and remove the old one after.
+4. Update the **Versions** table in `README.md`.
+
+How to check: `docs / docs` passes on the pull request; after the merge the next **scorecard** run succeeds.
 
 ## Update tool versions
 
