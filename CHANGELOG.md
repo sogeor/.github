@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Renovate proposes only versions published at least 7 days ago (`minimumReleaseAge`).
 - Renovate pull request titles follow Conventional Commits (`semanticCommits`).
 - Renovate `pip-compile` manager reads `requirements-*.txt` lock files; the files now keep the pip-compile header.
 
