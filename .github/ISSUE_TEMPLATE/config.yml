@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/sogeor/.github/blob/HEAD/SECURITY.md
+    about: Please report vulnerabilities privately, never in public issues.
+  - name: Service status
+    url: https://status.sogeor.com
+    about: Check current incidents before reporting an outage.
