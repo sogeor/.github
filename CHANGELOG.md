@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/sogeor/.github/compare/v1.0.0...v1.0.1) (2026-10-24)
+
+
+### Changed
+
+* pin sogeor/workflows action to 9bf70c2 ([#11](https://github.com/sogeor/.github/issues/11)) ([bac4dd3](https://github.com/sogeor/.github/commit/bac4dd311a38cbb15d57bcfa9fab5e4acd751539))
+
 ## 1.0.0 (2026-10-23)
 
 
