@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.1](https://github.com/sogeor/.github/compare/v1.0.0...v1.0.1) (2026-10-24)
+
+
+### Changed
+
+* pin sogeor/workflows action to 9bf70c2 ([#11](https://github.com/sogeor/.github/issues/11)) ([bac4dd3](https://github.com/sogeor/.github/commit/bac4dd311a38cbb15d57bcfa9fab5e4acd751539))
+* update actions/checkout action to v7 ([#15](https://github.com/sogeor/.github/issues/15)) ([da7d840](https://github.com/sogeor/.github/commit/da7d840c59ae67fb6b492cf7d12fb7f6161ab0a2))
+* update actions/create-github-app-token action to v3 ([#16](https://github.com/sogeor/.github/issues/16)) ([44d3842](https://github.com/sogeor/.github/commit/44d38424f4c4b8305368f178849ed830b70e92d8))
+* update github/codeql-action action to v4 ([#17](https://github.com/sogeor/.github/issues/17)) ([011fcd9](https://github.com/sogeor/.github/commit/011fcd928a029698d335f3c1d7807fcb31e409d2))
+* update ossf/scorecard-action action to v2.5.0 ([#7](https://github.com/sogeor/.github/issues/7)) ([2a2569f](https://github.com/sogeor/.github/commit/2a2569fec313d078e91d0b19d636ce4bee3fb90a))
+* update pre-commit (non-major) ([#20](https://github.com/sogeor/.github/issues/20)) ([a857604](https://github.com/sogeor/.github/commit/a857604217509801c420834cd6222544de6f9844))
+* update pre-commit hook fsfe/reuse-tool to v6 ([#18](https://github.com/sogeor/.github/issues/18)) ([f783218](https://github.com/sogeor/.github/commit/f7832186701fb90c40ca3e77ff5eac40defaadbe))
+* update pre-commit hook pre-commit/pre-commit-hooks to v6 ([#19](https://github.com/sogeor/.github/issues/19)) ([f36da56](https://github.com/sogeor/.github/commit/f36da5673fc23d46dd9e2b4a8f4cf6b15e18519f))
+
 ## 1.0.0 (2026-10-23)
 
 
