@@ -23,7 +23,7 @@ Please include:
 ## What to expect
 
 | Step | Target time |
-|---|---|
+| --- | --- |
 | Acknowledgement of the report | 3 business days |
 | Initial assessment | 7 days |
 | Fix for critical and high severity issues | 30 days |

@@ -32,7 +32,7 @@ Pull requests are squash-merged, and the **title becomes the commit message**. I
 ```
 
 | Type | Meaning | Version change |
-|---|---|---|
+| --- | --- | --- |
 | `feat` | new functionality | minor |
 | `fix` | bug fix | patch |
 | `perf` | performance improvement | patch |
