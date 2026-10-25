@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/sogeor/.github/compare/v1.0.1...v1.0.2) (2026-10-25)
+
+
+### Changed
+
+* update sogeor/workflows action to v1.2.0 ([#24](https://github.com/sogeor/.github/issues/24)) ([44d382d](https://github.com/sogeor/.github/commit/44d382d6f7ac51c11cebad1364e39c761f5fc302))
+
 ## [1.0.1](https://github.com/sogeor/.github/compare/v1.0.0...v1.0.1) (2026-10-24)
 
 
