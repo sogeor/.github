@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.3](https://github.com/sogeor/.github/compare/v1.0.2...v1.0.3) (2026-11-06)
+
+
+### Changed
+
+* update github/codeql-action digest to 9b32540 ([#31](https://github.com/sogeor/.github/issues/31)) ([9280f91](https://github.com/sogeor/.github/commit/9280f91ab8f854484f6a40dca6a5545bec12bc8c))
+* update pre-commit hook davidanson/markdownlint-cli2 to v0.24.0 ([#30](https://github.com/sogeor/.github/issues/30)) ([e7df680](https://github.com/sogeor/.github/commit/e7df6804fd549384936e223d3a3cdaad851264b2))
+* update pre-commit hook fsfe/reuse-tool to v6.3.0 ([#32](https://github.com/sogeor/.github/issues/32)) ([a526c5a](https://github.com/sogeor/.github/commit/a526c5ae169e9092eac3121108fd391e730c7066))
+* update sogeor/workflows action to v1.3.0 ([#26](https://github.com/sogeor/.github/issues/26)) ([19e28cd](https://github.com/sogeor/.github/commit/19e28cd57507fed033bd77d61e95f469cb9ad435))
+* update sogeor/workflows action to v1.3.2 ([#28](https://github.com/sogeor/.github/issues/28)) ([629a449](https://github.com/sogeor/.github/commit/629a4493bdb0b2511b394f638e115c5d6c06c421))
+* update sogeor/workflows action to v1.3.3 ([#29](https://github.com/sogeor/.github/issues/29)) ([9caec96](https://github.com/sogeor/.github/commit/9caec965eb9ea34fb281a0891e465419689424ef))
+
 ## [1.0.2](https://github.com/sogeor/.github/compare/v1.0.1...v1.0.2) (2026-10-25)
 
 
